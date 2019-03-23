@@ -10,6 +10,10 @@ as valid examples of "embedded assignments":
 #include <stdlib.h>  // for qsort
 #include <stdbool.h>  // for bool type
 
+int compare_ints(const void *x, const void *y) {
+    return *(const int *)x - *(const int *)y;
+}
+
 int a[10000000];
 
 int main() {
@@ -25,9 +29,11 @@ int main() {
         n++;
     }
 
-    for (i = 0; i < n; i++) {
-        printf("%2d %2d\n", i, a[i]);
-    }
+    qsort(a, n, sizeof(int), compare_ints);  // in-place sort
+
+    for(i = 0; i < n; i++) {
+        printf("%d\n", a[i]);
+    }    
 
     return 0;
 }
