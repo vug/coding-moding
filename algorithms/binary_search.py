@@ -14,20 +14,19 @@ logging.basicConfig(level=logging.DEBUG)
 logging.debug(nums)
 
 
-def binary_search(indexable, value):  # or sequence
+def binary_search_rec(indexable, value):  # or sequence
+    """Recursive Binary Search."""
     def helper(low, high, value):
         logging.debug(f"low: {low}, high: {high}")
         if low > high:
             return None
-
         mid = (low + high) // 2  # low + (high - low) // 2
         mid_val = indexable[mid]
         logging.debug(f"mid: {mid}, mid_val: {mid_val}")
         if mid_val == value:
             logging.debug(f"found at {mid}")
             return mid
-
-        if mid_val < value:
+        elif mid_val < value:
             low = mid + 1
         else:
             high = mid - 1
@@ -36,8 +35,23 @@ def binary_search(indexable, value):  # or sequence
     return helper(0, len(indexable) - 1, value)
 
 
+def binary_search(a, x):
+    """Iterative Binary Search."""
+    lo = 0
+    hi = len(a) - 1
+    while lo <= hi:
+        md = (lo + hi) // 2
+        if x == a[md]:
+            return md
+        elif x < a[md]:
+            hi = md - 1
+        elif x > a[md]:
+            lo = md + 1
+    return None
+
+
 # print(binary_search([1, 2, 3, 5, 7, 8, 10, 14, 15, 17], 2))
 # print(binary_search([1, 2, 3, 5, 7, 8, 10, 14, 15, 17], 4))
-print(binary_search([1, 2, 3], 0))
+print(binary_search([1, 2, 3], 1))
 
 # TODO: https://github.com/vug/coding-moding/projects/5
