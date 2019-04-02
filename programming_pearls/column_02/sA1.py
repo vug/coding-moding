@@ -36,7 +36,7 @@ def find_missing(a, rmin, rmax):
         elif a[mir] - a[mil] > 1:
             return a[mil] + 1
 
-        elif mir > hi:
+        elif mir > hi:  # len(a) == 1
             return None
 
         elif a[mil] - a[lo] > mil - lo:
