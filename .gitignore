@@ -1,3 +1,4 @@
 .vscode
 numbers_big*.txt
 numbers_small*.txt
+__pycache__
