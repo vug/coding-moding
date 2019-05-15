@@ -54,3 +54,4 @@ if __name__ == '__main__':
     assert decompress('a3[b]cde') == 'abbbcde'
     assert decompress('a2[bc]de2[fg]h') == 'abcbcdefgfgh'
     assert decompress('a2[b2[c]d]e2[f2[g]h]i') == 'abccdbccdefgghfgghi'
+    assert decompress('a11[b]c') == 'abbbbbbbbbbbc'
