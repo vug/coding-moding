@@ -1,0 +1,1 @@
+g++ -std=c++20 -O3 -I"../include" -L"../lib" main.cpp -lfmt -o solution
