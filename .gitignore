@@ -3,3 +3,5 @@ numbers_big*.txt
 numbers_small*.txt
 __pycache__
 a.out
+# name of C++ executables
+solution
