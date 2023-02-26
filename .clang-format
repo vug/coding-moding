@@ -1,0 +1,16 @@
+BasedOnStyle: Chromium # LLVM, Google, Chromium, Mozilla, WebKit, Microsoft, GNU
+Language: Cpp
+Standard: Latest # C++20
+
+ColumnLimit: 0
+UseTab: Never
+
+# AccessModifierOffset: -4
+# IndentWidth: 4
+# AlignEscapedNewlines: Left
+# AllowShortFunctionsOnASingleLine: Empty
+# AllowShortLambdasOnASingleLine: Empty
+# AlwaysBreakTemplateDeclarations: true
+# BreakConstructorInitializers: BeforeComma
+# IndentPPDirectives: AfterHash
+# PointerAlignment: Left
