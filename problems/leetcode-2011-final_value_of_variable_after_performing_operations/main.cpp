@@ -4,6 +4,7 @@
 // #include <range-v3/range/v3/range.hpp>
 
 #include <algorithm>
+#include <numeric>
 #include <ranges>
 #include <string>
 #include <vector>
@@ -51,12 +52,12 @@ int finalValueAfterOperations2b(std::vector<std::string>& operations) {
   return x;
 }
 
-// int finalValueAfterOperations3(std::vector<std::string>& ops) {
-//   auto opToPlusMinusOne = [](std::string& op) { if (op[1] == '+') return 1; else return -1; };
-//   auto ones = ops | std::ranges::views::transform(opToPlusMinusOne);
-//   // return std::ranges::fold_left(foo, 0, std::plus<int>());
-//   return std::accumulate(ones.begin(), ones.end(), 0);
-// }
+int finalValueAfterOperations3(std::vector<std::string>& ops) {
+  auto opToPlusMinusOne = [](std::string& op) { if (op[1] == '+') return 1; else return -1; };
+  auto ones = ops | std::ranges::views::transform(opToPlusMinusOne);
+  // return std::ranges::fold_left(foo, 0, std::plus<int>());
+  return std::accumulate(ones.begin(), ones.end(), 0);
+}
 
 int main() {
   std::vector<std::string> ops = {"--X", "X--", "++X", "X++"};
@@ -87,4 +88,9 @@ int main() {
     result = finalValueAfterOperations2b(inp);
   dur = t.timeSinceLastMs();
   fmt::print("{} {}\n", result, dur);
+
+  for (int i = 0; i < 10'00; ++i)
+    result = finalValueAfterOperations3(inp);
+  dur = t.timeSinceLastMs();
+  fmt::print("{} {}\n", result, dur);  
 }
